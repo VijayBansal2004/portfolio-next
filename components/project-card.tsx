@@ -1,0 +1,89 @@
+"use client";
+
+import { GlowingEffect } from "@/components/ui/glowing-effect";
+import Image from "next/image";
+import { Para } from "./para";
+import { tradingContent } from "@/data/projects";
+import { AvatarGroup } from "./ui/avatar-group";
+import { motion } from "motion/react";
+
+export default function ProjectCards() {
+  return (
+    <ul className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-4">
+      {tradingContent.map((item, index) => (
+        <ProjectCard
+          key={index}
+          index={index}
+          img={item.imagePath}
+          title={item.title}
+          description={item.discription}
+          techStack={item.techStack}
+        />
+      ))}
+    </ul>
+  );
+}
+
+interface ProjectCardProps {
+  index: number;
+  img: string;
+  title: string;
+  description: React.ReactNode;
+  techStack: { icon: React.ReactNode; name: string }[];
+}
+
+const ProjectCard = ({
+  index,
+  img,
+  title,
+  description,
+  techStack,
+}: ProjectCardProps) => {
+  return (
+    <motion.li
+      className={`list-none`}
+      initial={{ opacity: 0, y: 40, filter: "blur(12px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      transition={{
+        delay: index * 0.1,
+        duration: 0.3,
+      }}
+      viewport={{ once: true }}
+    >
+      <div className="group relative h-full rounded-lg border border-transparent transition-all duration-200 hover:border-inherit md:rounded-xl md:p-0">
+        <GlowingEffect
+          blur={0}
+          borderWidth={2}
+          spread={80}
+          glow={true}
+          disabled={false}
+          proximity={64}
+          inactiveZone={0.01}
+        />
+        <div className="relative flex h-full flex-col gap-6 overflow-hidden rounded-md">
+          <div className="relative flex flex-col gap-3">
+            <div className="h-full w-full overflow-hidden rounded-lg">
+              <Image
+                src={img}
+                alt={title}
+                width={500}
+                height={300}
+                className="w-full object-cover transition duration-200 group-hover:scale-[1.02]"
+              />
+            </div>
+            <div className="space-y-3 pb-3 transition-all duration-300 ease-in-out group-hover:px-3">
+              <h3 className="text-vj-primary dark:text-vj-primary-dark text-base leading-5 font-medium tracking-tight">
+                {title}
+              </h3>
+              <Para className="w-56 tracking-tight">{description}</Para>
+              <AvatarGroup
+                className="mt-4 select-none"
+                avatarUrls={techStack}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.li>
+  );
+};

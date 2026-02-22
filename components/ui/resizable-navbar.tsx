@@ -70,7 +70,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
       ref={ref}
       // IMPORTANT: Change this to class of `fixed` if you want the navbar to be fixed
       className={cn(
-        "fixed inset-x-0 top-0 z-40 mx-auto w-full max-w-4xl px-4",
+        "fixed inset-x-0 top-0 z-40 mx-auto w-full max-w-4xl px-8",
         className,
       )}
     >
@@ -106,7 +106,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         minWidth: "800px",
       }}
       className={cn(
-        "relative z-60 mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-2 py-2 pr-4 lg:flex dark:bg-transparent",
+        "relative z-60 mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-2 py-2 lg:flex dark:bg-transparent",
         visible && "bg-white/80 dark:bg-neutral-950/80",
         className,
       )}
@@ -123,7 +123,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-end space-x-1 text-sm font-medium text-neutral-600 transition duration-200 hover:text-neutral-800 lg:flex lg:space-x-1",
+        "absolute inset-0 hidden flex-row items-center justify-end space-x-1 text-sm font-medium text-neutral-600 transition duration-200 hover:text-neutral-800 lg:flex lg:space-x-1",
         className,
       )}
     >

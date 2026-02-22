@@ -39,8 +39,10 @@ export default function NavigationBar() {
       {/* Desktop Navigation */}
       <NavBody>
         <NavbarLogo />
-        <NavItems items={navItems} className="relative" />
-        <AnimatedThemeToggler />
+        <div className="flex items-center gap-2">
+          <AnimatedThemeToggler />
+          <NavItems items={navItems} className="relative" />
+        </div>
       </NavBody>
 
       {/* Mobile Navigation */}

@@ -74,7 +74,10 @@ export const AnimatedThemeToggler = ({
     <button
       ref={buttonRef}
       onClick={toggleTheme}
-      className={cn("text-vj-secondary", className)}
+      className={cn(
+        "text-vj-secondary cursor-pointer rounded-md p-1.5 hover:bg-gray-100 dark:hover:bg-neutral-800",
+        className,
+      )}
       {...props}
     >
       {isDark ? <Sun size={15} /> : <Moon size={15} />}
