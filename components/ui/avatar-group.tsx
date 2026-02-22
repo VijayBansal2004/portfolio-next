@@ -46,7 +46,7 @@ const AvatarGroup = ({ className, avatarUrls }: AvatarGroupProps) => {
   return (
     <div
       ref={containerRef}
-      className={cn("z-10 flex -space-x-3 rtl:space-x-reverse", className)}
+      className={cn("z-10 flex -space-x-2 rtl:space-x-reverse", className)}
     >
       {avatarUrls.map((avatar, index) => {
         const isHovered = hoveredIndex === index;

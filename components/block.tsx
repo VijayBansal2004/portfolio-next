@@ -10,7 +10,7 @@ export const Block = ({
   return (
     <div
       className={cn(
-        "shadow-section-inset dark:shadow-section-inset-dark my-4 border-y border-neutral-100 px-4 py-6 dark:border-neutral-800",
+        "shadow-section-inset dark:shadow-section-inset-dark border-y border-neutral-100 px-4 py-8 dark:border-neutral-800",
         className,
       )}
     >

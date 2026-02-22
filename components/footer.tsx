@@ -1,9 +1,10 @@
+import { Block } from "./block";
 import { GitHub, LinkedIn, X } from "./icons";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 
 const Footer = () => {
   return (
-    <div className="px-4">
+    <Block>
       <div className="text-vj-secondary dark:text-vj-secondary-dark flex items-center justify-between gap-2 text-xs">
         <p>
           Built with love by{" "}
@@ -17,10 +18,10 @@ const Footer = () => {
           <GitHub />
         </div>
       </div>
-      <div className="w-full">
+      <div className="hidden w-full sm:block">
         <TextHoverEffect text="VIJAY" />
       </div>
-    </div>
+    </Block>
   );
 };
 

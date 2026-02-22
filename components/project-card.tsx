@@ -3,26 +3,8 @@
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import Image from "next/image";
 import { Para } from "./para";
-import { tradingContent } from "@/data/projects";
 import { AvatarGroup } from "./ui/avatar-group";
 import { motion } from "motion/react";
-
-export default function ProjectCards() {
-  return (
-    <ul className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-4">
-      {tradingContent.map((item, index) => (
-        <ProjectCard
-          key={index}
-          index={index}
-          img={item.imagePath}
-          title={item.title}
-          description={item.discription}
-          techStack={item.techStack}
-        />
-      ))}
-    </ul>
-  );
-}
 
 interface ProjectCardProps {
   index: number;
@@ -32,7 +14,7 @@ interface ProjectCardProps {
   techStack: { icon: React.ReactNode; name: string }[];
 }
 
-const ProjectCard = ({
+export const ProjectCard = ({
   index,
   img,
   title,
@@ -42,7 +24,7 @@ const ProjectCard = ({
   return (
     <motion.li
       className={`list-none`}
-      initial={{ opacity: 0, y: 40, filter: "blur(12px)" }}
+      initial={{ opacity: 0, y: 20, filter: "blur(12px)" }}
       whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       transition={{
         delay: index * 0.1,
@@ -75,7 +57,9 @@ const ProjectCard = ({
               <h3 className="text-vj-primary dark:text-vj-primary-dark text-base leading-5 font-medium tracking-tight">
                 {title}
               </h3>
-              <Para className="w-56 tracking-tight">{description}</Para>
+              <Para className="w-11/12 tracking-tight sm:w-full md:w-56">
+                {description}
+              </Para>
               <AvatarGroup
                 className="mt-4 select-none"
                 avatarUrls={techStack}
