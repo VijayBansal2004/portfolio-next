@@ -1,4 +1,6 @@
+"use client";
 import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
 
 export const Para = ({
   children,
@@ -8,13 +10,17 @@ export const Para = ({
   className?: string;
 }) => {
   return (
-    <p
+    <motion.p
+      initial={{ opacity: 0, y: 20, filter: "blur(12px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      transition={{ duration: 0.3 }}
+      viewport={{ once: true }}
       className={cn(
         "text-vj-secondary dark:text-vj-secondary-dark text-sm",
         className,
       )}
     >
       {children}
-    </p>
+    </motion.p>
   );
 };

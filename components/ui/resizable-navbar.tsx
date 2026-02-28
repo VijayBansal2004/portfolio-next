@@ -142,7 +142,15 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
               className="absolute inset-0 h-full w-full rounded-md bg-gray-100 dark:bg-neutral-800"
             />
           )}
-          <span className="relative z-20">{item.name}</span>
+          <motion.span
+            initial={{ opacity: 0, y: -20, filter: "blur(12px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
+            viewport={{ once: true }}
+            className="relative z-20 inline-block"
+          >
+            {item.name}
+          </motion.span>
         </Link>
       ))}
     </motion.div>

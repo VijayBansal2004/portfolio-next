@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Para } from "./para";
 import Link from "next/link";
-import { WorkedCompanies } from "@/types/worked-companies";
 import { AvatarGroup } from "./ui/avatar-group";
 import {
   CSS,
@@ -12,6 +11,7 @@ import {
   ShadcnUI,
   TailwindCSS,
 } from "@/components/icons";
+import { WorkedCompanies } from "@/types/types";
 
 const WorkCard = ({
   companyName,

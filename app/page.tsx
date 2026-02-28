@@ -4,12 +4,11 @@ import { Heading } from "@/components/heading";
 import { Para } from "@/components/para";
 import { ProjectCard } from "@/components/project-card";
 import { SectionHeading } from "@/components/section-heading";
+import TestimonialSection from "@/components/testimonials-section";
 import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 import WorkCard from "@/components/word-card";
 import { tradingContent } from "@/data/projects";
-import { BlogCardProps } from "@/types/blog-type";
-
-import { WorkedCompanies } from "@/types/worked-companies";
+import { BlogCardProps, WorkedCompanies } from "@/types/types";
 
 export default function Home() {
   const WorkedCompanies: WorkedCompanies[] = [
@@ -56,8 +55,8 @@ export default function Home() {
       </Block>
       <Block>
         <SectionHeading className="mb-6">I love building things</SectionHeading>
-        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:gap-4">
-          {tradingContent.map((item, index) => (
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:gap-4">
+          {tradingContent.slice(0, 3).map((item, index) => (
             <ProjectCard
               key={index}
               index={index}
@@ -67,7 +66,7 @@ export default function Home() {
               techStack={item.techStack}
             />
           ))}
-        </ul>
+        </div>
       </Block>
       <Block>
         <SectionHeading className="mb-6">
@@ -86,6 +85,10 @@ export default function Home() {
             <WorkCard key={company.companyName} {...company} />
           ))}
         </div>
+      </Block>
+      <Block>
+        <SectionHeading className="mb-6">People love my work</SectionHeading>
+        <TestimonialSection />
       </Block>
     </div>
   );

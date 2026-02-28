@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="text-vj-secondary dark:text-vj-secondary-dark flex items-center justify-between gap-2 text-xs">
         <p>
           Built with love by{" "}
-          <span className="text-vj-primary dark:text-vj-primary-dark">
+          <span className="text-vj-primary dark:text-vj-primary-dark font-medium">
             Vijay Bansal
           </span>
         </p>

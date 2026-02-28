@@ -1,5 +1,5 @@
+import { BlogCardProps } from "@/types/types";
 import { Para } from "./para";
-import { BlogCardProps } from "@/types/blog-type";
 
 const BlogCard = ({ title, discription, datePosted }: BlogCardProps) => {
   return (

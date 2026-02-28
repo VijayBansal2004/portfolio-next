@@ -24,7 +24,7 @@ export const LayoutTextFlip = ({
     <>
       <motion.span
         layout
-        className="text-vj-secondary relative w-fit overflow-hidden rounded-sm border bg-white px-2 py-1 text-sm shadow-sm shadow-black/10 drop-shadow-lg dark:bg-neutral-900 dark:shadow-sm dark:shadow-white/10"
+        className="text-vj-secondary relative w-fit overflow-hidden rounded-sm bg-white px-2 py-1 text-sm shadow-sm shadow-black/5 drop-shadow-sm dark:bg-neutral-900 dark:shadow-sm dark:shadow-white/10"
       >
         <AnimatePresence mode="popLayout">
           <motion.span
@@ -36,7 +36,7 @@ export const LayoutTextFlip = ({
             }}
             exit={{ y: 50, filter: "blur(20px)", opacity: 0 }}
             transition={{
-              duration: 0.5,
+              duration: 0.3,
             }}
             className={cn("inline-block whitespace-nowrap")}
           >
