@@ -3,7 +3,7 @@ import { Heading } from "@/components/heading";
 import { Para } from "@/components/para";
 import { ProjectCard } from "@/components/project-card";
 import { SectionHeading } from "@/components/section-heading";
-import { tradingContent } from "@/data/projects";
+import { PROJECTS_DATA } from "@/data/projects";
 
 const ProjectsPage = () => {
   return (
@@ -17,10 +17,11 @@ const ProjectsPage = () => {
       <Block>
         <SectionHeading className="mb-6">I love building things</SectionHeading>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:gap-4">
-          {tradingContent.slice(0, 3).map((item, index) => (
+          {PROJECTS_DATA.map((item, index) => (
             <ProjectCard
               key={index}
               index={index}
+              websiteURL={item.websiteURL}
               img={item.imagePath}
               title={item.title}
               description={item.discription}

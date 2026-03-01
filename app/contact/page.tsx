@@ -28,24 +28,24 @@ const ContactPage = () => {
   });
 
   const formSubmit = async (data: ContactFormValues) => {
-    const promise = new Promise<void>(async (resolve, reject) => {
-      try {
-        console.log("Form Data:", data);
-
-        // simulate API delay
-        await new Promise((res) => setTimeout(res, 1500));
-
-        resolve();
-      } catch {
-        reject();
+    const promise = fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then(async (res) => {
+      if (!res.ok) {
+        throw new Error("Failed to send");
       }
+      return res.json();
     });
 
     toast.promise(promise, {
       loading: "Sending message...",
       success: () => {
         reset();
-        return "Form sent successfully";
+        return "Message sent successfully 🚀";
       },
       error: "Something went wrong. Please try again.",
     });

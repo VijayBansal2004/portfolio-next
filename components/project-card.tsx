@@ -9,6 +9,7 @@ import Link from "next/link";
 
 interface ProjectCardProps {
   index: number;
+  websiteURL: string;
   img: string;
   title: string;
   description: React.ReactNode;
@@ -19,13 +20,14 @@ export const ProjectCard = ({
   index,
   img,
   title,
+  websiteURL,
   description,
   techStack,
 }: ProjectCardProps) => {
   return (
-    <Link href={`/projects/${title}`}>
+    <Link href={websiteURL} target="_blank">
       <motion.div
-        className="cursor-pointer list-none"
+        className="h-full cursor-pointer list-none"
         initial={{ opacity: 0, y: 20, filter: "blur(12px)" }}
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{

@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/section-heading";
 import TestimonialSection from "@/components/testimonials-section";
 import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 import WorkCard from "@/components/word-card";
-import { tradingContent } from "@/data/projects";
+import { PROJECTS_DATA } from "@/data/projects";
 import { BlogCardProps, WorkedCompanies } from "@/types/types";
 
 export default function Home() {
@@ -56,10 +56,11 @@ export default function Home() {
       <Block>
         <SectionHeading className="mb-6">I love building things</SectionHeading>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:gap-4">
-          {tradingContent.slice(0, 3).map((item, index) => (
+          {PROJECTS_DATA.slice(0, 3).map((item, index) => (
             <ProjectCard
               key={index}
               index={index}
+              websiteURL={item.websiteURL}
               img={item.imagePath}
               title={item.title}
               description={item.discription}

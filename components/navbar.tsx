@@ -70,7 +70,7 @@ export default function NavigationBar() {
               onClick={() => setIsMobileMenuOpen(false)}
               className="relative text-neutral-600 dark:text-neutral-300"
             >
-              <span className="block">{item.name}</span>
+              <span className="block text-sm">{item.name}</span>
             </Link>
           ))}
         </MobileNavMenu>

@@ -3,6 +3,7 @@ import { Para } from "./para";
 import Link from "next/link";
 import { AvatarGroup } from "./ui/avatar-group";
 import {
+  Bootstrap,
   CSS,
   HTML5,
   JavaScript,
@@ -33,6 +34,10 @@ const WorkCard = ({
     {
       icon: <JavaScript />,
       name: "JavaScript",
+    },
+    {
+      icon: <Bootstrap />,
+      name: "Bootstrap",
     },
     {
       icon: <React />,
