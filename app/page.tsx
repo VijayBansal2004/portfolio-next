@@ -87,7 +87,7 @@ export default function Home() {
         </div>
       </Block>
       <Block>
-        <SectionHeading className="mb-6">People love my work</SectionHeading>
+        <SectionHeading className="mb-12">People love my work</SectionHeading>
         <TestimonialSection />
       </Block>
     </div>
