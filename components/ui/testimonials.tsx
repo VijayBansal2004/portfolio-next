@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
-import { Testimonial } from "@/types/types";
+import { TESTIMONIAL_PROPS } from "@/types/types";
 import Image from "next/image";
 
 export const Testimonials = (props: {
   className?: string;
-  testimonials: Testimonial[];
+  testimonials: TESTIMONIAL_PROPS[];
   duration?: number;
 }) => {
   return (

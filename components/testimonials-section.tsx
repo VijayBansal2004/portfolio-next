@@ -1,7 +1,7 @@
-import { Testimonial } from "@/types/types";
+import { TESTIMONIAL_PROPS } from "@/types/types";
 import { Testimonials } from "./ui/testimonials";
 
-const testimonials: Testimonial[] = [
+const testimonials: TESTIMONIAL_PROPS[] = [
   {
     text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
     image: "/logo.jpg",

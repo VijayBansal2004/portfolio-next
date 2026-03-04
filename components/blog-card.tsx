@@ -1,7 +1,7 @@
-import { BlogCardProps } from "@/types/types";
+import { BLOG_CARDS_PROPS } from "@/types/types";
 import { Para } from "./para";
 
-const BlogCard = ({ title, discription, datePosted }: BlogCardProps) => {
+const BlogCard = ({ title, discription, datePosted }: BLOG_CARDS_PROPS) => {
   return (
     <div className="flex flex-col gap-2 sm:flex-row">
       <div className="flex-4">

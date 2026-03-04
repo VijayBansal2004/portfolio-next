@@ -12,7 +12,7 @@ import {
   ShadcnUI,
   TailwindCSS,
 } from "@/components/icons";
-import { WorkedCompanies } from "@/types/types";
+import { WORK_COMPANIES_PROPS } from "@/types/types";
 
 const WorkCard = ({
   companyName,
@@ -21,7 +21,7 @@ const WorkCard = ({
   role,
   duration,
   description,
-}: WorkedCompanies) => {
+}: WORK_COMPANIES_PROPS) => {
   const techStack = [
     {
       icon: <HTML5 />,

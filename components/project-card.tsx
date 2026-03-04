@@ -29,9 +29,8 @@ export const ProjectCard = ({
 }: ProjectCardProps) => {
   return (
     <Link href={websiteURL} target="_blank">
-      <Pointer className="fill-blue-500">
-        Visit <MdOutlineArrowOutward />
-      </Pointer>
+      <Pointer className="fill-blue-500" />
+
       <motion.div
         className="h-full list-none"
         initial={{ opacity: 0, y: 20, filter: "blur(12px)" }}

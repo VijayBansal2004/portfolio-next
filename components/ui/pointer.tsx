@@ -9,6 +9,7 @@ import {
 } from "motion/react";
 
 import { cn } from "@/lib/utils";
+import { MdOutlineArrowOutward } from "react-icons/md";
 
 /**
  * A custom pointer component that displays an animated cursor.
@@ -21,7 +22,6 @@ import { cn } from "@/lib/utils";
 export function Pointer({
   className,
   style,
-  children,
   ...props
 }: HTMLMotionProps<"div">): React.ReactNode {
   const x = useMotionValue(0);
@@ -113,7 +113,7 @@ export function Pointer({
               </svg>
             }
             <p className="relative left-5 flex items-center justify-center gap-1 rounded-full rounded-tl-none bg-blue-500 px-2 py-2 text-xs leading-0 font-semibold tracking-tight text-neutral-50">
-              {children}
+              Visit <MdOutlineArrowOutward />
             </p>
           </motion.div>
         )}
