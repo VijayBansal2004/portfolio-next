@@ -92,7 +92,9 @@ export default function Home() {
         <SectionHeading className="mb-12">People love my work</SectionHeading>
         <TestimonialSection />
       </Block>
-      <CallToAction />
+      <Block>
+        <CallToAction />
+      </Block>
     </div>
   );
 }
