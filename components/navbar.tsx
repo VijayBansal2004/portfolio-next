@@ -13,6 +13,7 @@ import {
 import { useState } from "react";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import Link from "next/link";
+import { motion } from "motion/react";
 export default function NavigationBar() {
   const navItems = [
     {
@@ -70,7 +71,14 @@ export default function NavigationBar() {
               onClick={() => setIsMobileMenuOpen(false)}
               className="relative text-neutral-600 dark:text-neutral-300"
             >
-              <span className="block text-sm">{item.name}</span>
+              <motion.span
+                initial={{ opacity: 0, y: -20, filter: "blur(12px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="block text-xl font-semibold"
+              >
+                {item.name}
+              </motion.span>
             </Link>
           ))}
         </MobileNavMenu>

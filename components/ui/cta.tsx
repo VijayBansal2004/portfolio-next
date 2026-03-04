@@ -19,7 +19,7 @@ export function CallToAction() {
 
       <div className="absolute top-0 left-1/2 -z-10 h-full border-l border-dashed" />
 
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
         <div className="flex-1">
           <motion.h2
             initial={{ opacity: 0, y: 20, filter: "blur(12px)" }}
