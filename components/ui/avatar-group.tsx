@@ -60,7 +60,7 @@ const AvatarGroup = ({ className, avatarUrls }: AvatarGroupProps) => {
             onTouchEnd={(e) => handleInteraction(index, e)}
             onClick={(e) => handleInteraction(index, e)}
             className={cn(
-              "relative flex cursor-pointer touch-none items-center justify-center gap-0 rounded-full",
+              "relative flex touch-none items-center justify-center gap-0 rounded-full",
               "transition-all duration-500 ease-out",
               "hover:z-10",
               "border border-neutral-200 bg-neutral-100 p-0.5 dark:border-neutral-700 dark:bg-neutral-800",

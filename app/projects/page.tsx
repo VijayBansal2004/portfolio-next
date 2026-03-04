@@ -3,6 +3,7 @@ import { Heading } from "@/components/heading";
 import { Para } from "@/components/para";
 import { ProjectCard } from "@/components/project-card";
 import { SectionHeading } from "@/components/section-heading";
+import { CallToAction } from "@/components/ui/cta";
 import { PROJECTS_DATA } from "@/data/projects";
 
 const ProjectsPage = () => {
@@ -30,6 +31,7 @@ const ProjectsPage = () => {
           ))}
         </div>
       </Block>
+      <CallToAction />
     </div>
   );
 };

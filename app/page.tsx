@@ -7,30 +7,15 @@ import { SectionHeading } from "@/components/section-heading";
 import TestimonialSection from "@/components/testimonials-section";
 import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 import WorkCard from "@/components/word-card";
+import { BLOG_CARDS } from "@/data/blogs";
 import { PROJECTS_DATA } from "@/data/projects";
-import { BlogCardProps, WorkedCompanies } from "@/types/types";
+import { WORK_COMPANIES } from "@/data/work-experiences";
+import { Button } from "@/components/ui/button";
+import { ImagesBadge } from "@/components/ui/images-badge";
+import Link from "next/link";
+import { CallToAction } from "@/components/ui/cta";
 
 export default function Home() {
-  const WorkedCompanies: WorkedCompanies[] = [
-    {
-      companyName: "Webcom Systems Pvt. Ltd.",
-      companyLogo: "/companies/webcom-logo.png",
-      companyUrl: "https://webcomsystems.com.au/",
-      role: "Front-end Developer",
-      duration: "June 2024 - Present",
-      description:
-        "I work on the front-end of the company's main product, which is a web-based ERP system for schools. I work on new features, bug fixes, and improvements to the existing codebase.",
-    },
-  ];
-
-  const BlogCards: BlogCardProps[] = [
-    {
-      title: "Advanced CSS Techniques for Modern Web Development",
-      discription:
-        "Explore advanced CSS techniques including CSS Grid, Flexbox, Custom Properties, and modern layout patterns that will take your web development skills to the next level.",
-      datePosted: "Thursday, Feb 15, 2024",
-    },
-  ];
   return (
     <div>
       <Block className="mt-0 border-0 pt-0 shadow-[none] dark:shadow-[none]">
@@ -68,13 +53,29 @@ export default function Home() {
             />
           ))}
         </div>
+        <div className="mx-auto mt-10 sm:w-fit">
+          <Button variant={"link"}>
+            <Link href="/projects">
+              <ImagesBadge
+                hoverImageSize={{ width: 80, height: 50 }}
+                hoverTranslateY={-60}
+                text="View all Projects"
+                images={[
+                  "/projects/finsaix-full.webp",
+                  "/projects/everest-remit-full.webp",
+                  "/projects/bitnetx-full.webp",
+                ]}
+              />
+            </Link>
+          </Button>
+        </div>
       </Block>
       <Block>
         <SectionHeading className="mb-6">
           Sharing knowledge as I learn
         </SectionHeading>
         <div className="flex flex-col gap-6">
-          {BlogCards.map((blog) => (
+          {BLOG_CARDS.map((blog) => (
             <BlogCard key={blog.title} {...blog} />
           ))}
         </div>
@@ -82,7 +83,7 @@ export default function Home() {
       <Block>
         <SectionHeading className="mb-6">Worked at reputed firm</SectionHeading>
         <div className="flex flex-col gap-6">
-          {WorkedCompanies.map((company) => (
+          {WORK_COMPANIES.map((company) => (
             <WorkCard key={company.companyName} {...company} />
           ))}
         </div>
@@ -91,6 +92,7 @@ export default function Home() {
         <SectionHeading className="mb-12">People love my work</SectionHeading>
         <TestimonialSection />
       </Block>
+      <CallToAction />
     </div>
   );
 }

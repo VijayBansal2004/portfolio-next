@@ -6,6 +6,9 @@ import { Para } from "./para";
 import { AvatarGroup } from "./ui/avatar-group";
 import { motion } from "motion/react";
 import Link from "next/link";
+import { Lens } from "./ui/lens";
+import { Pointer } from "./ui/pointer";
+import { MdOutlineArrowOutward } from "react-icons/md";
 
 interface ProjectCardProps {
   index: number;
@@ -26,8 +29,11 @@ export const ProjectCard = ({
 }: ProjectCardProps) => {
   return (
     <Link href={websiteURL} target="_blank">
+      <Pointer className="fill-blue-500">
+        Visit <MdOutlineArrowOutward />
+      </Pointer>
       <motion.div
-        className="h-full cursor-pointer list-none"
+        className="h-full list-none"
         initial={{ opacity: 0, y: 20, filter: "blur(12px)" }}
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{
@@ -47,14 +53,22 @@ export const ProjectCard = ({
           />
           <div className="relative flex h-full flex-col gap-6 overflow-hidden rounded-md">
             <div className="relative flex flex-col gap-3">
-              <div className="h-full w-full overflow-hidden rounded-lg">
-                <Image
-                  src={img}
-                  alt={title}
-                  width={500}
-                  height={300}
-                  className="w-full object-cover transition duration-200 group-hover:scale-[1.02]"
-                />
+              <div className="h-full max-h-[150px] w-full overflow-hidden rounded-lg">
+                <Lens
+                  zoomFactor={3}
+                  lensSize={150}
+                  isStatic={false}
+                  ariaLabel="Zoom Area"
+                >
+                  <Image
+                    src={img}
+                    alt={title}
+                    width={500}
+                    height={1500}
+                    className="h-full w-full"
+                    // className="w-full object-cover object-top transition-transform duration-4000 ease-in-out group-hover:-translate-y-[40%]"
+                  />
+                </Lens>
               </div>
               <div className="space-y-3 pb-3 transition-all duration-300 ease-in-out group-hover:px-3">
                 <h3 className="text-vj-primary dark:text-vj-primary-dark text-base leading-5 font-medium tracking-tight">

@@ -69,7 +69,10 @@ const WorkCard = ({
           <Para>{duration}</Para>
         </div>
         <Para>{description}</Para>
-        <AvatarGroup className="mt-4 select-none" avatarUrls={techStack} />
+        <AvatarGroup
+          className="mt-4 cursor-pointer select-none"
+          avatarUrls={techStack}
+        />
       </div>
       <div className="hidden flex-1 sm:block">
         <Link href={companyUrl} target="_blank">

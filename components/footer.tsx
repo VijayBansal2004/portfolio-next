@@ -18,7 +18,7 @@ const Footer = () => {
           <GitHub />
         </div>
       </div>
-      <div className="hidden w-full sm:block">
+      <div className="hidden max-h-[220px] w-full overflow-hidden mask-[linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] sm:block">
         <TextHoverEffect text="VIJAY" />
       </div>
     </Block>

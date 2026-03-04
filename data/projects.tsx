@@ -14,7 +14,7 @@ import {
 
 export const PROJECTS_DATA = [
   {
-    imagePath: "/projects/xchangeOn.webp",
+    imagePath: "/projects/xchangeOn-full.webp",
     websiteURL: "https://xchangeon.io/",
     title: "Xchangeon",
     discription:
@@ -43,7 +43,7 @@ export const PROJECTS_DATA = [
     ],
   },
   {
-    imagePath: "/projects/gtify-protocol.webp",
+    imagePath: "/projects/gtify-protocol-full.webp",
     websiteURL: "https://wallet.gtifyprotocol.io/",
     title: "Gtify Protocol",
     discription:
@@ -72,7 +72,7 @@ export const PROJECTS_DATA = [
     ],
   },
   {
-    imagePath: "/projects/xauras.webp",
+    imagePath: "/projects/xauras-full.webp",
     websiteURL: "https://xauras.io/",
     title: "Xausas",
     discription:
@@ -97,7 +97,7 @@ export const PROJECTS_DATA = [
     ],
   },
   {
-    imagePath: "/projects/everest-remit.webp",
+    imagePath: "/projects/everest-remit-full.webp",
     websiteURL: "https://vijaybansal2004.github.io/Everest-Remit/",
     title: "Everest Remit",
     discription:
@@ -123,7 +123,7 @@ export const PROJECTS_DATA = [
     ],
   },
   {
-    imagePath: "/projects/finsaix.webp",
+    imagePath: "/projects/finsaix-full.webp",
     websiteURL: "https://finsaix.com/",
     title: "FinsaiX",
     discription:
@@ -152,7 +152,7 @@ export const PROJECTS_DATA = [
     ],
   },
   {
-    imagePath: "/projects/bitNetX.webp",
+    imagePath: "/projects/bitnetx-full.webp",
     websiteURL: "https://vijaybansal2004.github.io/bitnetX",
     title: "BitnetX",
     discription:
