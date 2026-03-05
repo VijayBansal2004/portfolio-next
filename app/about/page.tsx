@@ -24,7 +24,9 @@ const AboutPage = () => {
           ))}
         </div>
       </Block>
-      <CallToAction />
+      <Block>
+        <CallToAction />
+      </Block>
     </div>
   );
 };

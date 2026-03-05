@@ -31,7 +31,9 @@ const ProjectsPage = () => {
           ))}
         </div>
       </Block>
-      <CallToAction />
+      <Block>
+        <CallToAction />
+      </Block>
     </div>
   );
 };

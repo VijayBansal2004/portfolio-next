@@ -104,7 +104,7 @@ export const TextHoverEffect = ({
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.3"
-        className="fill-neutral-100 font-[helvetica] text-7xl font-bold dark:fill-neutral-950/20"
+        className="fill-neutral-100 font-[helvetica] text-7xl font-bold dark:fill-neutral-800/50"
         initial={{ strokeDashoffset: 1000, strokeDasharray: 1000 }}
         animate={{
           strokeDashoffset: 0,
