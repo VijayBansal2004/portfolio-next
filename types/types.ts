@@ -18,3 +18,8 @@ export type WORK_COMPANIES_PROPS = {
   duration: string;
   description: string;
 };
+
+export type LinksProps = {
+  link: string;
+  Icon: React.ReactNode;
+};

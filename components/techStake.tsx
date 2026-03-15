@@ -53,12 +53,12 @@ export function TechStake({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative flex h-[400px] w-full items-center justify-center overflow-hidden p-10",
+        "relative flex h-[400px] w-full items-center justify-center overflow-hidden sm:p-10",
         className,
       )}
       ref={containerRef}
     >
-      <div className="flex size-full max-w-lg flex-row items-stretch justify-between gap-10">
+      <div className="flex size-full max-w-lg flex-row items-stretch justify-between sm:gap-10">
         <div className="flex flex-col justify-center gap-4">
           <Circle ref={div1Ref}>
             <HTML5 />

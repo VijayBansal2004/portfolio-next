@@ -70,7 +70,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
     <motion.div
       ref={ref}
       className={cn(
-        "fixed inset-x-0 top-0 z-40 mx-auto w-full max-w-4xl px-8",
+        "fixed inset-x-0 top-0 z-40 mx-auto w-full max-w-4xl px-4 sm:px-8",
         className,
       )}
     >
@@ -216,7 +216,7 @@ export const MobileNavMenu = ({
           exit={{ opacity: 0 }}
           className={cn(
             "absolute -inset-x-8 inset-y-0 -z-1 flex h-screen w-screen flex-col items-center justify-center gap-6 rounded-lg bg-white px-4 py-8 dark:bg-neutral-950",
-            "after:absolute after:inset-0 after:-top-20 after:-z-1 after:bg-neutral-950",
+            "after:absolute after:inset-0 after:-top-20 after:-z-1 after:bg-white dark:after:bg-neutral-950",
             className,
           )}
         >
