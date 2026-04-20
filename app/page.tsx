@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { ImagesBadge } from "@/components/ui/images-badge";
 import Link from "next/link";
 import { CallToAction } from "@/components/ui/cta";
+import LogoCarousel from "@/components/ui/logo-carousel";
 
 export default function Home() {
   return (
@@ -53,6 +54,7 @@ export default function Home() {
             />
           ))}
         </div>
+
         <div className="mx-auto mt-10 sm:w-fit">
           <Button variant={"link"}>
             <Link href="/projects">
@@ -69,6 +71,9 @@ export default function Home() {
             </Link>
           </Button>
         </div>
+      </Block>
+      <Block>
+        <LogoCarousel />
       </Block>
       <Block>
         <SectionHeading className="mb-6">

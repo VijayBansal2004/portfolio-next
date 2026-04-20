@@ -30,13 +30,18 @@ const Footer = () => {
         </p>
         <div className="flex items-center gap-2">
           {LINKS.map((link) => (
-            <Link key={link.link} href={link.link} target="_blank">
+            <Link
+              key={link.link}
+              href={link.link}
+              target="_blank"
+              className="h-4 w-4 text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200"
+            >
               {link.Icon}
             </Link>
           ))}
         </div>
       </div>
-      <div className="hidden max-h-[220px] w-full overflow-hidden mask-[linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] sm:block">
+      <div className="hidden max-h-55 w-full overflow-hidden mask-[linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] sm:block">
         <TextHoverEffect text="VIJAY" />
       </div>
     </Block>
