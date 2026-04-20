@@ -25,8 +25,8 @@ export default function NavigationBar() {
       link: "/projects",
     },
     {
-      name: "Blog",
-      link: "/blog",
+      name: "Blogs",
+      link: "/blogs",
     },
     {
       name: "Contact",

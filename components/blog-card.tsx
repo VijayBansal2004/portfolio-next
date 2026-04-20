@@ -1,19 +1,22 @@
 import { BLOG_CARDS_PROPS } from "@/types/types";
 import { Para } from "./para";
+import Link from "next/link";
 
-const BlogCard = ({ title, discription, datePosted }: BLOG_CARDS_PROPS) => {
+const BlogCard = ({ slug, title, description, date }: BLOG_CARDS_PROPS) => {
   return (
-    <div className="flex flex-col gap-2 sm:flex-row">
-      <div className="flex-4">
-        <h3 className="text-vj-primary dark:text-vj-primary-dark mb-2 font-semibold tracking-tight">
-          {title}
-        </h3>
-        <Para>{discription}</Para>
+    <Link key={title} href={`/blog/${slug}`}>
+      <div className="flex flex-col gap-2 sm:flex-row">
+        <div className="flex-4">
+          <h3 className="text-vj-primary dark:text-vj-primary-dark mb-2 font-semibold tracking-tight">
+            {title}
+          </h3>
+          <Para>{description}</Para>
+        </div>
+        <div className="flex-1">
+          <Para className="text-xs sm:text-sm">{date}</Para>
+        </div>
       </div>
-      <div className="flex-1">
-        <Para className="text-xs sm:text-sm">{datePosted}</Para>
-      </div>
-    </div>
+    </Link>
   );
 };
 

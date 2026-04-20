@@ -7,7 +7,6 @@ import { SectionHeading } from "@/components/section-heading";
 import TestimonialSection from "@/components/testimonials-section";
 import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 import WorkCard from "@/components/word-card";
-import { BLOG_CARDS } from "@/data/blogs";
 import { PROJECTS_DATA } from "@/data/projects";
 import { WORK_COMPANIES } from "@/data/work-experiences";
 import { Button } from "@/components/ui/button";
@@ -15,8 +14,10 @@ import { ImagesBadge } from "@/components/ui/images-badge";
 import Link from "next/link";
 import { CallToAction } from "@/components/ui/cta";
 import LogoCarousel from "@/components/ui/logo-carousel";
+import { getAllPosts } from "@/lib/posts";
 
 export default function Home() {
+  const posts = getAllPosts();
   return (
     <div>
       <Block className="mt-0 border-0 pt-0 shadow-[none] dark:shadow-[none]">
@@ -80,8 +81,8 @@ export default function Home() {
           Sharing knowledge as I learn
         </SectionHeading>
         <div className="flex flex-col gap-6">
-          {BLOG_CARDS.map((blog) => (
-            <BlogCard key={blog.title} {...blog} />
+          {posts.map((post) => (
+            <BlogCard key={post.slug} {...{ ...post, slug: "" }} />
           ))}
         </div>
       </Block>
