@@ -5,7 +5,7 @@ import NavigationBar from "@/components/navbar";
 import { Inter } from "next/font/google";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "next-themes";
-import { FloatingChatWidget } from "@/components/floating-chat-widget-shadcnui";
+import { Chatbot } from "@/components/chatbot";
 
 export const metadata: Metadata = {
   title: "Vijay Bansal",
@@ -33,7 +33,7 @@ export default function RootLayout({
             <div className="absolute top-0 right-0 hidden h-full w-4 border-x border-x-(--pattern-fg) bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed md:block md:w-8 dark:border-x-(--pattern-fg-dark) dark:bg-[repeating-linear-gradient(315deg,var(--pattern-fg-dark)_0,var(--pattern-fg-dark)_1px,transparent_0,transparent_50%)]"></div>
           </div>
           <Toaster position="top-center" />
-          <FloatingChatWidget />
+          <Chatbot />
         </ThemeProvider>
       </body>
     </html>

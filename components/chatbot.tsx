@@ -32,7 +32,7 @@ const messageVariants: Variants = {
   },
 };
 
-export function FloatingChatWidget() {
+export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -48,45 +48,6 @@ export function FloatingChatWidget() {
   const toggleOpen = useCallback(() => {
     setIsOpen((prev) => !prev);
   }, []);
-
-  // const sendMessage = async () => {
-  //   if (!input.trim()) return;
-
-  //   const newMessages = [...messages, { role: "user", content: input }];
-
-  //   setMessages(newMessages);
-  //   setInput("");
-  //   setLoading(true);
-
-  //   try {
-  //     const res = await fetch("/api/chat", {
-  //       method: "POST",
-  //       body: JSON.stringify({ messages: newMessages }),
-  //     });
-
-  //     const data = await res.json();
-
-  //     setMessages([
-  //       ...newMessages,
-  //       {
-  //         role: "assistant",
-  //         content: data.reply.content,
-  //       },
-  //     ]);
-  //   } catch (err) {
-  //     setMessages([
-  //       ...newMessages,
-  //       {
-  //         role: "assistant",
-  //         content: "Something went wrong. Please try again.",
-  //       },
-  //     ]);
-  //   }
-
-  //   setLoading(false);
-  // };
-
-  // In FloatingChatWidget component
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -145,11 +106,11 @@ export function FloatingChatWidget() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="bg-background w-96 overflow-hidden rounded-2xl border shadow-2xl backdrop-blur-xl"
+            className="bg-background w-80 overflow-hidden rounded-2xl border shadow-2xl backdrop-blur-xl md:w-96"
           >
             {/* Header */}
             <div className="flex items-center justify-between border-b p-4">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 md:gap-3">
                 <Avatar className="h-10 w-10">
                   <AvatarImage src="/logo.jpg" />
                   <AvatarFallback>AI</AvatarFallback>
@@ -179,14 +140,23 @@ export function FloatingChatWidget() {
                   )}
                 >
                   <Avatar className="h-8 w-8">
-                    <AvatarFallback>
-                      {msg.role === "user" ? "ME" : "AI"}
-                    </AvatarFallback>
+                    {msg.role === "user" ? (
+                      <AvatarFallback className="text-xs md:text-sm">
+                        ME
+                      </AvatarFallback>
+                    ) : (
+                      <>
+                        <AvatarImage src="/logo.jpg" />
+                        <AvatarFallback className="text-xs md:text-sm">
+                          AI
+                        </AvatarFallback>
+                      </>
+                    )}
                   </Avatar>
 
                   <div
                     className={cn(
-                      "max-w-[85%] rounded-2xl px-4 py-2.5 text-sm",
+                      "max-w-[85%] rounded-2xl px-4 py-2.5 text-xs md:text-sm",
                       msg.role === "user"
                         ? "bg-primary text-primary-foreground rounded-tr-none"
                         : "bg-muted rounded-tl-none",
@@ -244,7 +214,7 @@ export function FloatingChatWidget() {
         whileTap={{ scale: 0.95 }}
         className={cn(
           "flex h-14 w-14 items-center justify-center rounded-full shadow-lg",
-          isOpen ? "bg-red-500" : "bg-blue-600 text-white",
+          isOpen ? "bg-red-500" : "bg-neutral-100 text-neutral-800",
         )}
       >
         {isOpen ? <X /> : <MessageSquare />}
