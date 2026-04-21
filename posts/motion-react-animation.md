@@ -1,6 +1,6 @@
 ---
 title: "Why Motion (React Animation Library) is a Game Changer for Frontend Developers"
-date: "Monday, Apr 20, 2026"
+date: "Tuesday, Mar 17, 2026"
 description: "Explore how Motion (Framer Motion) simplifies animations in React apps and makes UI more interactive, smooth, and engaging."
 ---
 

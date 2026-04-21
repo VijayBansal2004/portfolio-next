@@ -1,6 +1,6 @@
 ---
 title: "How Tailwind CSS Overtook Traditional CSS and Bootstrap"
-date: "Monday, Apr 20, 2026"
+date: "Friday, May 15, 2026"
 description: "Exploring how Tailwind CSS changed the way developers style applications and why it’s replacing traditional CSS and Bootstrap in modern frontend development."
 ---
 

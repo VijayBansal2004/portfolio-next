@@ -38,10 +38,12 @@ const AboutPage = () => {
                 </NativeMagnetic>
               </Link>
               <NativeMagnetic className="w-full sm:w-fit">
-                <Button variant={"outline"} className="w-full">
-                  Download CV
-                  <HiDownload />
-                </Button>
+                <Link href={"/vijay-bansal-resume.pdf"} download={true}>
+                  <Button variant={"outline"} className="w-full">
+                    Download CV
+                    <HiDownload />
+                  </Button>
+                </Link>
               </NativeMagnetic>
             </div>
           </div>
