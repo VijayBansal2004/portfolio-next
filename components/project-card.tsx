@@ -8,7 +8,6 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { Lens } from "./ui/lens";
 import { Pointer } from "./ui/pointer";
-import { MdOutlineArrowOutward } from "react-icons/md";
 
 interface ProjectCardProps {
   index: number;
@@ -52,7 +51,7 @@ export const ProjectCard = ({
           />
           <div className="relative flex h-full flex-col gap-6 overflow-hidden rounded-md">
             <div className="relative flex flex-col gap-3">
-              <div className="h-full max-h-[150px] w-full overflow-hidden rounded-lg">
+              <div className="h-full max-h-37.5 w-full overflow-hidden rounded-lg">
                 <Lens
                   zoomFactor={3}
                   lensSize={150}
@@ -65,7 +64,6 @@ export const ProjectCard = ({
                     width={500}
                     height={1500}
                     className="h-full w-full"
-                    // className="w-full object-cover object-top transition-transform duration-4000 ease-in-out group-hover:-translate-y-[40%]"
                   />
                 </Lens>
               </div>

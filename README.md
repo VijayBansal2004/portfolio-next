@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 👋 Hi, I'm Vijay Bansal
 
-## Getting Started
+🚀 Frontend Developer | React & Next.js Enthusiast | UI/UX Focused
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🧑‍💻 About Me
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+I am a passionate Frontend Developer focused on building responsive, scalable, and user-friendly web applications. I enjoy transforming ideas into interactive digital experiences with smooth micro-interactions and clean UI.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+I have experience working on production-level projects where I contributed to improving performance, usability, and overall user experience.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ⚡ What I Do
 
-To learn more about Next.js, take a look at the following resources:
+- Build responsive and modern web applications
+- Develop reusable and scalable UI components
+- Implement smooth micro-interactions for better UX
+- Optimize performance and fix UI/UX issues
+- Collaborate with designers and backend teams
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Tech Stack
 
-## Deploy on Vercel
+**Frontend:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- React.js
+- Next.js
+- TypeScript
+- JavaScript (ES6+)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Styling & UI:**
+
+- Tailwind CSS
+- ShadCN UI
+- Bootstrap
+
+**Tools & Others:**
+
+- Git & GitHub
+- Figma (for UI collaboration)
+
+---
+
+## 🌟 Key Highlights
+
+- Strong focus on **clean and maintainable code**
+- Passionate about **micro-interactions & UX**
+- Experience with **scalable frontend architecture**
+- Quick learner and team collaborator
+
+---
+
+## ⭐ Feedback
+
+If you like my work, feel free to ⭐ the repo or connect with me. Always open to collaboration and learning opportunities!

@@ -9,7 +9,6 @@ import { NativeMagnetic } from "@/components/ui/native-magnetic-shadcnui";
 import { Ripple } from "@/components/ui/ripple";
 import WorkCard from "@/components/word-card";
 import { WORK_COMPANIES } from "@/data/work-experiences";
-import { cn } from "@/lib/utils";
 import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,9 +22,6 @@ const AboutPage = () => {
           <div>
             <Heading>About Me</Heading>
             <Para className="max-w-lg pt-4 text-sm md:text-base">
-              {/* Hi, I am a Front-End Developer who builds modern, high-performance
-              web applications with attention to detail and smooth user
-              experiences. */}
               Hi, I&apos;m Vijay Bansal — a Frontend Developer specializing in
               React and Next.js. I build modern, high-performance web
               applications with a strong focus on clean UI, performance, and
@@ -49,7 +45,7 @@ const AboutPage = () => {
               </NativeMagnetic>
             </div>
           </div>
-          <div className="relative mt-5 flex h-full min-h-[330px] w-full flex-col items-center justify-center overflow-hidden md:mt-0 md:min-h-[350px]">
+          <div className="relative mt-5 flex h-full min-h-82.5 w-full flex-col items-center justify-center overflow-hidden md:mt-0 md:min-h-87.5">
             <div className="relative z-2 flex size-25 items-center justify-center overflow-hidden rounded-full">
               <Image src="/logo.jpg" alt="logo" width={500} height={500} />
             </div>

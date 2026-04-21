@@ -8,6 +8,6 @@ export const WORK_COMPANIES: WORK_COMPANIES_PROPS[] = [
     role: "Front-end Developer",
     duration: "June 2024 - Present",
     description:
-      "I work on the front-end of the company's main product, which is a web-based ERP system for schools. I work on new features, bug fixes, and improvements to the existing codebase.",
+      "Contributing to key projects by developing responsive UI components, while enhancing user experience through thoughtful micro-interactions and performance-focused implementation.",
   },
 ];

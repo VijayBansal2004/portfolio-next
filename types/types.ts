@@ -4,6 +4,7 @@ export type TESTIMONIAL_PROPS = {
   name: string;
   role: string;
 };
+
 export type BLOG_CARDS_PROPS = {
   slug?: string;
   title?: string;

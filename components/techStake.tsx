@@ -53,7 +53,7 @@ export function TechStake({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative flex h-[400px] w-full items-center justify-center overflow-hidden sm:p-10",
+        "relative flex h-100 w-full items-center justify-center overflow-hidden sm:p-10",
         className,
       )}
       ref={containerRef}

@@ -8,7 +8,6 @@ export default async function BlogPost({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  // ✅ unwrap params
   const { slug } = await params;
 
   const post = await getPost(slug);
