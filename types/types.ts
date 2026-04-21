@@ -5,12 +5,13 @@ export type TESTIMONIAL_PROPS = {
   role: string;
 };
 export type BLOG_CARDS_PROPS = {
-  slug: string;
-  title: string;
-  date: string;
-  description: string;
-  content: string;
+  slug?: string;
+  title?: string;
+  date?: string;
+  description?: string;
+  content?: string;
   index?: number;
+  featured?: boolean;
 };
 
 export type WORK_COMPANIES_PROPS = {

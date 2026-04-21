@@ -32,7 +32,7 @@ export default async function BlogPost({
             "pt-4 text-sm md:text-base",
             "prose prose-lg dark:prose-invert max-w-none",
           )}
-          dangerouslySetInnerHTML={{ __html: post.content }}
+          dangerouslySetInnerHTML={{ __html: post.content || "" }}
         />
       </Block>
     </div>
