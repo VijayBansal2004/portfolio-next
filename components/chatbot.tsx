@@ -213,8 +213,8 @@ export function Chatbot() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className={cn(
-          "flex h-14 w-14 items-center justify-center rounded-full shadow-lg",
-          isOpen ? "bg-red-500" : "bg-neutral-100 text-neutral-800",
+          "flex h-14 w-14 items-center justify-center rounded-full bg-neutral-800 text-neutral-100 shadow-lg dark:bg-neutral-100 dark:text-neutral-800",
+          isOpen ? "bg-red-500! text-white!" : "",
         )}
       >
         {isOpen ? <X /> : <MessageSquare />}
