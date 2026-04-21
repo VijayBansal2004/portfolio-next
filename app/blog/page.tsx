@@ -1,12 +1,9 @@
-import { getAllPosts } from "@/lib/posts";
 import { Para } from "@/components/para";
 import { Block } from "@/components/block";
 import { Heading } from "@/components/heading";
-import BlogCard from "@/components/blog-card";
+import Blogs from "@/components/features-section-demo-2";
 
 export default function BlogPage() {
-  const POSTS = getAllPosts();
-
   return (
     <>
       <Block className="mt-0 border-0 pt-0 shadow-[none] dark:shadow-[none]">
@@ -19,9 +16,7 @@ export default function BlogPage() {
         </div>
       </Block>
       <Block>
-        {POSTS.map((post) => (
-          <BlogCard key={post.slug} {...post} />
-        ))}
+        <Blogs />
       </Block>
     </>
   );

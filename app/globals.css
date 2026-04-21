@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
@@ -58,13 +59,15 @@
   --color-vj-primary-dark: var(--color-neutral-200);
   --color-vj-secondary: var(--color-neutral-500);
   --color-vj-secondary-dark: var(--color-neutral-400);
-  --animate-ripple: ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite;
+  --animate-ripple: ripple var(--duration, 2s) ease calc(var(--i, 0) * 0.2s)
+    infinite;
   @keyframes ripple {
-  0%, 100% {
-    transform: translate(-50%, -50%) scale(1);
+    0%,
+    100% {
+      transform: translate(-50%, -50%) scale(1);
     }
-  50% {
-    transform: translate(-50%, -50%) scale(0.9);
+    50% {
+      transform: translate(-50%, -50%) scale(0.9);
     }
   }
 }
@@ -161,3 +164,25 @@
   animation: none;
   mix-blend-mode: normal;
 }
+
+/* Blog page css start */
+.blog-page-block h1 {
+  @apply text-vj-primary dark:text-vj-primary-dark mb-5 text-2xl leading-tight! font-bold tracking-tighter md:text-4xl;
+}
+.blog-page-block h2 {
+  @apply text-vj-primary dark:text-vj-primary-dark mb-3 text-lg font-bold tracking-tighter md:text-xl;
+}
+.blog-page-block h3 {
+  @apply text-vj-primary dark:text-vj-primary-dark mb-3 text-base font-bold tracking-tighter md:text-lg;
+}
+.blog-page-block p,
+.blog-page-block li {
+  @apply text-vj-secondary dark:text-vj-secondary-dark mt-0 mb-4 text-sm;
+}
+.blog-page-block li {
+  @apply mt-0 mb-0;
+}
+.blog-page-block hr {
+  @apply my-4 border-neutral-200 md:my-8 dark:border-neutral-700;
+}
+/* Blog page css end*/

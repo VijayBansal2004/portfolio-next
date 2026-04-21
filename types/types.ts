@@ -10,6 +10,7 @@ export type BLOG_CARDS_PROPS = {
   date: string;
   description: string;
   content: string;
+  index?: number;
 };
 
 export type WORK_COMPANIES_PROPS = {

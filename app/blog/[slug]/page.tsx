@@ -25,14 +25,12 @@ export default async function BlogPost({
 
   return (
     <div>
-      <Block className="mt-0 border-0 pt-0 shadow-[none] dark:shadow-[none]">
-        <Heading>{post.title}</Heading>
-      </Block>
-      <Block className="mt-0 border-0 pt-0 shadow-[none] dark:shadow-[none]">
+      <Block className="blog-page-block mt-0 border-0 pt-0 shadow-[none] dark:shadow-[none]">
         <div
           className={cn(
             "text-vj-secondary dark:text-vj-secondary-dark text-sm",
             "pt-4 text-sm md:text-base",
+            "prose prose-lg dark:prose-invert max-w-none",
           )}
           dangerouslySetInnerHTML={{ __html: post.content }}
         />

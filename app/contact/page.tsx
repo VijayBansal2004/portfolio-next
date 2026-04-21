@@ -72,7 +72,7 @@ const ContactPage = () => {
             <Input
               id="name"
               type="text"
-              placeholder="Tyler Durden"
+              placeholder="Shubham Bansal"
               {...register("name", {
                 required: "Please enter your name!",
                 pattern: {
@@ -91,7 +91,7 @@ const ContactPage = () => {
             <Input
               id="email"
               type="email"
-              placeholder="tyler.durden@outlook.com"
+              placeholder="shubham.bansal@outlook.com"
               {...register("email", {
                 required: "Please enter your email!",
                 pattern: {
