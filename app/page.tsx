@@ -82,7 +82,7 @@ export default function Home() {
         </SectionHeading>
         <div className="flex flex-col gap-6">
           {posts.map((post) => (
-            <BlogCard key={post.slug} {...{ ...post, featured: true }} />
+            <BlogCard key={post.slug} {...post} />
           ))}
         </div>
       </Block>
