@@ -47,5 +47,6 @@ export async function getPost(slug: string): Promise<BLOG_CARDS_PROPS | null> {
     date: data.date,
     description: data.description,
     content: processedContent.toString(),
+    tags: data.tags || [],
   };
 }

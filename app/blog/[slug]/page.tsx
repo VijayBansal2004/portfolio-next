@@ -25,13 +25,32 @@ export default async function BlogPost({
   return (
     <div>
       <Block className="blog-page-block mt-0 border-0 pt-0 shadow-[none] dark:shadow-[none]">
+        <Heading className="mb-2 text-2xl font-bold md:text-3xl">
+          {post?.title}
+        </Heading>
+
+        <Para className="mb-4 text-xs">{post?.date}</Para>
+
+        <div className="mb-4 flex flex-wrap gap-2">
+          {post?.tags?.map((tag) => (
+            <SectionHeading
+              key={tag}
+              className="text-vj-secondary! dark:text-vj-secondary-dark! m-0! cursor-pointer text-sm! font-normal! hover:text-neutral-500! hover:dark:text-neutral-300!"
+            >
+              #{tag}
+            </SectionHeading>
+          ))}
+        </div>
+        <div>
+          <VoiceMessageBubble text={stripHtml(post.content || "")} />
+        </div>
         <div
           className={cn(
             "text-vj-secondary dark:text-vj-secondary-dark text-sm",
             "pt-4 text-sm md:text-base",
             "prose prose-lg dark:prose-invert max-w-none",
           )}
-          dangerouslySetInnerHTML={{ __html: post.content || "" }}
+          dangerouslySetInnerHTML={{ __html: post?.content || "" }}
         />
       </Block>
     </div>
@@ -39,6 +58,9 @@ export default async function BlogPost({
 }
 
 import { getAllPosts } from "@/lib/posts";
+import { Para } from "@/components/para";
+import { SectionHeading } from "@/components/section-heading";
+import VoiceMessageBubble from "@/components/voice-message-bubble";
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -46,4 +68,9 @@ export async function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }));
+}
+
+export function stripHtml(html: string) {
+  if (!html) return "";
+  return html.replace(/<[^>]*>/g, "");
 }

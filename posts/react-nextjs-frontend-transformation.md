@@ -2,9 +2,22 @@
 title: "How React.js and Next.js Transformed Frontend Development"
 date: "Monday, Apr 20, 2026"
 description: "A deep dive into how React.js and Next.js revolutionized frontend development and changed the way developers build modern web applications."
+tags:
+  [
+    "React.js",
+    "Next.js",
+    "Frontend Development",
+    "Web Development",
+    "JavaScript",
+    "Modern Web Apps",
+    "SSR",
+    "Static Site Generation",
+    "Full Stack Development",
+    "UI Frameworks",
+    "Performance Optimization",
+    "Developer Experience",
+  ]
 ---
-
-# How React.js and Next.js Transformed Frontend Development 🚀
 
 Frontend development has undergone a massive transformation over the past decade. What once involved writing static HTML, managing complex CSS files, and handling jQuery-based interactions has evolved into building highly dynamic, scalable, and performance-driven applications. At the center of this transformation are React.js and Next.js—two technologies that have fundamentally changed how frontend developers work.
 

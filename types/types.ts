@@ -13,6 +13,7 @@ export type BLOG_CARDS_PROPS = {
   content?: string;
   index?: number;
   featured?: boolean;
+  tags?: string[];
 };
 
 export type WORK_COMPANIES_PROPS = {
