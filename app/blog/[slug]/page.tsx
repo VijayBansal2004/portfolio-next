@@ -44,6 +44,7 @@ export default async function BlogPost({
         <div>
           <VoiceMessageBubble text={stripHtml(post.content || "")} />
         </div>
+        <BlogSummary content={stripHtml(post.content || "")} />
         <div
           className={cn(
             "text-vj-secondary dark:text-vj-secondary-dark text-sm",
@@ -61,6 +62,7 @@ import { getAllPosts } from "@/lib/posts";
 import { Para } from "@/components/para";
 import { SectionHeading } from "@/components/section-heading";
 import VoiceMessageBubble from "@/components/voice-message-bubble";
+import BlogSummary from "@/components/blogSummary";
 
 export async function generateStaticParams() {
   const posts = getAllPosts();

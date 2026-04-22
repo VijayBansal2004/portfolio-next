@@ -4,33 +4,95 @@ import { NextResponse } from "next/server";
 // 🔹 OpenRouter client
 const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
-  apiKey: process.env.OPENROUTER_API_KEY,
+  apiKey: process.env?.OPENROUTER_API_KEY,
 });
 
 // 🔹 Predefined answers (instant + smart)
 const predefinedAnswers: Record<string, string> = {
+  // Identity
   "who are you":
-    "I'm Vijay's AI assistant. I can tell you about his work, skills, and projects.",
+    "I'm Vijay's AI assistant 🤖. I can help you explore his skills, projects, and experience.",
 
   "who is vijay":
-    "Vijay is a Frontend Developer specializing in React and Next.js. He builds fast, interactive web apps with a strong focus on UI and user experience.",
+    "Vijay is a Frontend Developer who specializes in React and Next.js. He focuses on building fast, scalable, and visually engaging web applications.",
 
+  "tell me about vijay":
+    "Vijay is a passionate frontend developer with expertise in modern web technologies like React, Next.js, and TypeScript. He loves crafting smooth user experiences and clean interfaces.",
+
+  // Work & Role
   "what do you do":
-    "Vijay builds scalable web applications using React and Next.js, focusing on clean UI and smooth interactions.",
+    "Vijay builds modern web applications with a focus on performance, scalability, and great user experience.",
 
+  "what does vijay do":
+    "He develops responsive and interactive web apps using React, Next.js, and modern frontend tools.",
+
+  // Skills
   skills:
-    "Vijay works with React, Next.js, TypeScript, Tailwind CSS, and modern frontend tools.",
+    "Vijay works with React, Next.js, TypeScript, Tailwind CSS, JavaScript, and modern UI/UX practices.",
 
+  "tech stack":
+    "His tech stack includes React, Next.js, TypeScript, Tailwind CSS, and various frontend libraries.",
+
+  technologies:
+    "Vijay is experienced in frontend technologies like React, Next.js, TypeScript, Tailwind CSS, and integrates APIs effectively.",
+
+  // Projects
   projects:
-    "He has built interactive UI components, AI-powered features like this chatbot, and scalable frontend applications.",
+    "Vijay has built scalable frontend apps, reusable UI components, and AI-powered features like chatbots.",
 
+  "show projects":
+    "You can explore Vijay's projects in the projects section of this portfolio. They include modern UI apps and AI integrations.",
+
+  // Experience
   experience:
-    "Vijay is currently working and continuously improving his skills in frontend development and AI integrations.",
+    "Vijay has hands-on experience building production-ready web applications and continuously improves his frontend and AI skills.",
 
+  "work experience":
+    "He has worked on real-world applications focusing on performance, UI consistency, and scalability.",
+
+  // AI
+  ai: "Vijay is actively exploring AI integrations, including chatbots and smart UI features.",
+
+  "ai projects":
+    "He has worked on AI-powered features like this chatbot and is continuously experimenting with intelligent interfaces.",
+
+  // Contact
   contact:
-    "You can contact Vijay through the contact section on this portfolio.",
+    "You can reach out to Vijay through the contact section on this portfolio.",
 
-  ai: "Vijay is currently exploring AI integrations to build smarter and more interactive web applications.",
+  "how to contact":
+    "Feel free to use the contact form available on the portfolio to get in touch with Vijay.",
+
+  email:
+    "You can contact Vijay via the contact section where his email details are available.",
+
+  // Availability
+  "are you available for work":
+    "Yes! Vijay is open to exciting opportunities and freelance projects.",
+
+  "hire vijay":
+    "You can hire Vijay for frontend development projects. Reach out via the contact section to discuss your requirements.",
+
+  // Education
+  education:
+    "Vijay has a strong foundation in web development and continuously learns new technologies to stay updated.",
+
+  // Personality / Soft touch
+  "why should i hire vijay":
+    "Vijay combines strong technical skills with a keen eye for design, ensuring both functionality and great user experience.",
+
+  "what makes vijay different":
+    "He focuses on clean code, performance, and intuitive UI — not just making things work, but making them feel great to use.",
+
+  // Fallback-ish friendly answers
+  help: "You can ask about Vijay's skills, projects, experience, or how to contact him.",
+
+  hello: "Hey there! 👋 Ask me anything about Vijay.",
+
+  hi: "Hi! I'm here to help you learn more about Vijay.",
+
+  thanks:
+    "You're welcome! 😊 Let me know if you'd like to know more about Vijay.",
 };
 
 // 🔹 Match predefined answers
@@ -52,9 +114,9 @@ You are Vijay's AI assistant.
 
 About Vijay:
 - Frontend Developer
-- Specializes in React and Next.js
+- Specializes in React, Tailwind CSS, ShadCN UI, TypeScript, JavaScript, CSS, Next.js
 - Builds scalable and interactive web applications
-- Focuses on UI, animations, and user experience
+- Focuses on micro-interactions, UI/UX, animations, and user experience
 - Exploring AI integrations
 
 Rules:
@@ -65,7 +127,28 @@ Rules:
 
 export async function POST(req: Request) {
   try {
-    const { messages } = await req.json();
+    const { messages, mode, content } = await req.json();
+
+    if (mode === "summary") {
+      const completion = await openai.chat.completions.create({
+        model: "openai/gpt-3.5-turbo",
+        messages: [
+          {
+            role: "system",
+            content:
+              "Summarize the given blog into 2-3 short bullet points. Keep it crisp and easy to scan. ",
+          },
+          {
+            role: "user",
+            content: content,
+          },
+        ],
+      });
+
+      return NextResponse.json({
+        summary: completion.choices[0].message.content,
+      });
+    }
 
     if (!messages || messages.length === 0) {
       return NextResponse.json(

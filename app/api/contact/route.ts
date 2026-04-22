@@ -8,14 +8,14 @@ export async function POST(req: Request) {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: process.env?.EMAIL_USER,
+        pass: process.env?.EMAIL_PASS,
       },
     });
 
     await transporter.sendMail({
       from: email,
-      to: process.env.EMAIL_USER,
+      to: process.env?.EMAIL_USER,
       subject: `Portfolio Contact from ${name}`,
       html: `
         <h3>Portfolio Enquiry (Contact Form)</h3>
