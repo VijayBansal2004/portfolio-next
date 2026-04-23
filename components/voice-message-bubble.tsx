@@ -20,7 +20,6 @@ export default function VoiceMessageBubble({
   const utteranceRef = React.useRef<SpeechSynthesisUtterance | null>(null);
   const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
 
-  // ✅ Estimate duration (words per minute)
   const words = text.split(" ").length;
   const duration = (words / 150) * 60; // seconds
 
@@ -41,7 +40,6 @@ export default function VoiceMessageBubble({
 
     setIsPlaying(true);
 
-    // ✅ Fake progress updater
     const startTime = Date.now();
 
     intervalRef.current = setInterval(() => {
@@ -110,7 +108,6 @@ export default function VoiceMessageBubble({
           />
         ))}
 
-        {/* ✅ Progress overlay */}
         <div
           className="absolute top-0 left-0 h-full rounded bg-neutral-400/10"
           style={{ width: `${progress}%` }}

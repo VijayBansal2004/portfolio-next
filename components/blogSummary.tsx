@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { GenerateLoader } from "@/components/generateLoader";
+import BlogSummaryPoint from "./blogSummaryPoint";
 
 export default function BlogSummary({ content }: { content: string }) {
-  const [summary, setSummary] = useState([] as string[]);
+  const [summary, setSummary] = useState<string>("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -20,13 +21,7 @@ export default function BlogSummary({ content }: { content: string }) {
         });
 
         const data = await res.json();
-
-        const points = data.summary
-          .split("\n")
-          .map((line: string) => line.replace(/^[-•]\s*/, "").trim())
-          .filter((line: string) => line.length > 0);
-
-        setSummary(points);
+        setSummary(data.summary);
       } catch (err) {
         console.error(err);
       } finally {
@@ -49,15 +44,7 @@ export default function BlogSummary({ content }: { content: string }) {
           <SkeletonText />
         </>
       ) : (
-        <>
-          <ul className="flex list-disc flex-col gap-2 pl-4 text-sm md:pl-5">
-            {summary?.map((point: string, i: number) => (
-              <li key={i} className="text-neutral-900! dark:text-neutral-100!">
-                {point}
-              </li>
-            ))}
-          </ul>
-        </>
+        <BlogSummaryPoint summary={summary} />
       )}
     </div>
   );
@@ -69,8 +56,7 @@ export function SkeletonText() {
       <Skeleton className="h-4 w-full" />
       <Skeleton className="h-4 w-full" />
       <Skeleton className="h-4 w-3/4" />
-      <Skeleton className="h-4 w-full" />
-      <Skeleton className="h-4 w-3/4" />
+      <Skeleton className="h-4 w-2/4" />
     </div>
   );
 }

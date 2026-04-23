@@ -2,6 +2,11 @@ import { Block } from "@/components/block";
 import { Heading } from "@/components/heading";
 import { getPost } from "@/lib/posts";
 import { cn } from "@/lib/utils";
+import { getAllPosts } from "@/lib/posts";
+import { Para } from "@/components/para";
+import VoiceMessageBubble from "@/components/voice-message-bubble";
+import BlogSummary from "@/components/blogSummary";
+import { BlogTag } from "@/components/blogTag";
 
 export default async function BlogPost({
   params,
@@ -31,14 +36,11 @@ export default async function BlogPost({
 
         <Para className="mb-4 text-xs">{post?.date}</Para>
 
-        <div className="mb-4 flex flex-wrap gap-2">
-          {post?.tags?.map((tag) => (
-            <SectionHeading
-              key={tag}
-              className="text-vj-secondary! dark:text-vj-secondary-dark! m-0! cursor-pointer text-sm! font-normal! hover:text-neutral-500! hover:dark:text-neutral-300!"
-            >
+        <div className="mb-4 hidden flex-wrap gap-1 md:flex">
+          {post?.tags?.map((tag, index) => (
+            <BlogTag key={tag} index={index}>
               #{tag}
-            </SectionHeading>
+            </BlogTag>
           ))}
         </div>
         <VoiceMessageBubble text={stripHtml(post.content || "")} />
@@ -55,12 +57,6 @@ export default async function BlogPost({
     </div>
   );
 }
-
-import { getAllPosts } from "@/lib/posts";
-import { Para } from "@/components/para";
-import { SectionHeading } from "@/components/section-heading";
-import VoiceMessageBubble from "@/components/voice-message-bubble";
-import BlogSummary from "@/components/blogSummary";
 
 export async function generateStaticParams() {
   const posts = getAllPosts();

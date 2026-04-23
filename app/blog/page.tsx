@@ -1,7 +1,7 @@
 import { Para } from "@/components/para";
 import { Block } from "@/components/block";
 import { Heading } from "@/components/heading";
-import Blogs from "@/components/features-section-demo-2";
+import Blogs from "@/components/blogs";
 
 export default function BlogPage() {
   return (
