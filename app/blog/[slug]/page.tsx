@@ -41,9 +41,7 @@ export default async function BlogPost({
             </SectionHeading>
           ))}
         </div>
-        <div>
-          <VoiceMessageBubble text={stripHtml(post.content || "")} />
-        </div>
+        <VoiceMessageBubble text={stripHtml(post.content || "")} />
         <BlogSummary content={stripHtml(post.content || "")} />
         <div
           className={cn(

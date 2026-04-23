@@ -68,11 +68,26 @@ export default function VoiceMessageBubble({
     else speak();
   };
 
-  // stable waveform
-  const bars = React.useMemo(() => {
-    return Array.from({ length: 30 }).map(() => 4 + Math.random() * 12);
+  const [barCount, setBarCount] = React.useState(90);
+
+  React.useEffect(() => {
+    const updateBars = () => {
+      if (window.innerWidth >= 1024) {
+        setBarCount(150);
+      } else {
+        setBarCount(60);
+      }
+    };
+
+    updateBars(); // run on mount
+    window.addEventListener("resize", updateBars);
+
+    return () => window.removeEventListener("resize", updateBars);
   }, []);
 
+  const bars = React.useMemo(() => {
+    return Array.from({ length: barCount }).map(() => 4 + Math.random() * 12);
+  }, [barCount]);
   return (
     <div
       className={cn(
