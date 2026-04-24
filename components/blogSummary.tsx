@@ -38,7 +38,7 @@ export default function BlogSummary({ content }: { content: string }) {
         AI Summary
       </h2>
 
-      {loading ? (
+      {loading || !summary ? (
         <>
           <GenerateLoader text="Summarizing..." classNames="mb-3" />
           <SkeletonText />
