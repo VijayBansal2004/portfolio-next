@@ -89,17 +89,17 @@ export default function VoiceMessageBubble({
   return (
     <div
       className={cn(
-        "flex items-center gap-3 rounded-xl bg-neutral-100 p-3 shadow-sm dark:bg-neutral-800",
+        "flex items-center gap-1 rounded-full bg-neutral-100 p-1 shadow-sm dark:bg-neutral-800",
         className,
       )}
     >
       {/* Play/Pause */}
-      <Button onClick={togglePlay} className="rounded-full p-2">
+      <Button onClick={togglePlay} className="rounded-full p-2.5!">
         {isPlaying ? <Pause /> : <Play />}
       </Button>
 
       {/* Wave + Progress */}
-      <div className="relative flex h-6 flex-1 items-center justify-between px-1">
+      <div className="relative flex h-8 flex-1 items-center justify-between px-1">
         {bars.map((height, idx) => (
           <div
             key={idx}
@@ -109,7 +109,7 @@ export default function VoiceMessageBubble({
         ))}
 
         <div
-          className="absolute top-0 left-0 h-full rounded bg-neutral-400/10"
+          className="absolute top-0 left-0 h-full rounded bg-neutral-400/30"
           style={{ width: `${progress}%` }}
         />
       </div>

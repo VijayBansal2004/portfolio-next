@@ -1,20 +1,10 @@
-import { getAllPosts } from "@/lib/posts";
+"use client";
+
 import { cn } from "@/lib/utils";
 import { BLOG_CARDS_PROPS } from "@/types/types";
 import Link from "next/link";
 import { Para } from "./para";
-
-export default function Blogs() {
-  const POSTS = getAllPosts();
-
-  return (
-    <div className="relative z-10 grid max-w-7xl grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-      {POSTS.map((post, idx) => (
-        <BlogGridCard key={post.slug} {...post} index={idx} />
-      ))}
-    </div>
-  );
-}
+import { motion } from "motion/react";
 
 export const BlogGridCard = ({
   slug,
@@ -25,7 +15,13 @@ export const BlogGridCard = ({
 }: BLOG_CARDS_PROPS) => {
   return (
     <Link href={`/blog/${slug}`}>
-      <div
+      <motion.div
+        initial={{ opacity: 0, y: 20, filter: "blur(12px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        transition={{
+          delay: index * 0.1,
+          duration: 0.3,
+        }}
         className={cn(
           "group/feature relative flex h-full flex-col py-5 pt-0 md:border-r md:py-5 dark:border-neutral-800",
           (index === 0 || index === 3) && "md:border-l dark:border-neutral-800",
@@ -52,7 +48,7 @@ export const BlogGridCard = ({
         <Para className="relative z-10 max-w-xs px-5 text-sm md:px-5">
           {description}
         </Para>
-      </div>
+      </motion.div>
     </Link>
   );
 };
