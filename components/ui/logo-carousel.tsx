@@ -14,6 +14,7 @@ import {
   NextjsFull,
   TailwindCSSFull,
 } from "../icons";
+import { Block } from "../block";
 
 // Define the structure for our logo objects
 interface Logo {
@@ -162,16 +163,18 @@ function LogoCarousel({ columnCount = 5 }: { columnCount?: number }) {
   }, [updateTime]);
 
   return (
-    <div className="flex items-center justify-between space-x-2 md:space-x-4">
-      {logoSets.map((logos, index) => (
-        <LogoColumn
-          key={index}
-          logos={logos}
-          index={index}
-          currentTime={currentTime}
-        />
-      ))}
-    </div>
+    <Block>
+      <div className="flex items-center justify-between space-x-2 md:space-x-4">
+        {logoSets.map((logos, index) => (
+          <LogoColumn
+            key={index}
+            logos={logos}
+            index={index}
+            currentTime={currentTime}
+          />
+        ))}
+      </div>
+    </Block>
   );
 }
 
