@@ -89,7 +89,7 @@ export default function VoiceMessageBubble({
   return (
     <div
       className={cn(
-        "flex items-center gap-1 rounded-full bg-neutral-100 p-1 shadow-sm dark:bg-neutral-800",
+        "mb-4 flex items-center gap-1 rounded-full bg-neutral-100 p-1 shadow-sm dark:bg-neutral-800",
         className,
       )}
     >

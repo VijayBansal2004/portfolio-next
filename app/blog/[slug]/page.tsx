@@ -44,7 +44,7 @@ export default async function BlogPost({
           ))}
         </div>
         <VoiceMessageBubble text={stripHtml(post.content || "")} />
-        <BlogSummary content={stripHtml(post.content || "")} />
+        {/* <BlogSummary content={stripHtml(post.content || "")} /> */}
         <div
           className={cn(
             "text-vj-secondary dark:text-vj-secondary-dark text-sm",
