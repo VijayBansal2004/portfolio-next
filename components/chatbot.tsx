@@ -1,11 +1,16 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion, type Variants } from "framer-motion";
-import { MessageSquare, Send, X } from "lucide-react";
 import { useCallback, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { MessageSquare, Send, X } from "lucide-react";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 20, scale: 0.95 },
@@ -123,9 +128,17 @@ export function Chatbot() {
                 </div>
               </div>
 
-              <Button size="icon" variant="ghost" onClick={toggleOpen}>
-                <X className="h-4 w-4" />
-              </Button>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button size="icon" variant="ghost" onClick={toggleOpen}>
+                    <X className="h-4 w-4" />
+                  </Button>
+                </TooltipTrigger>
+
+                <TooltipContent className="z-50">
+                  <p>Close Chat</p>
+                </TooltipContent>
+              </Tooltip>
             </div>
 
             {/* Messages */}
@@ -197,10 +210,17 @@ export function Chatbot() {
                   placeholder="Ask something..."
                   className="flex-1 rounded-full border px-4 py-2 text-sm outline-none"
                 />
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button size="icon" disabled={!input.trim() || loading}>
+                      <Send className="h-4 w-4" />
+                    </Button>
+                  </TooltipTrigger>
 
-                <Button size="icon" disabled={!input.trim() || loading}>
-                  <Send className="h-4 w-4" />
-                </Button>
+                  <TooltipContent className="z-50">
+                    <p>Send</p>
+                  </TooltipContent>
+                </Tooltip>
               </form>
             </div>
           </motion.div>
@@ -208,17 +228,26 @@ export function Chatbot() {
       </AnimatePresence>
 
       {/* Floating Button */}
-      <motion.button
-        onClick={toggleOpen}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className={cn(
-          "flex h-14 w-14 items-center justify-center rounded-full bg-neutral-800 text-neutral-100 shadow-lg dark:bg-neutral-100 dark:text-neutral-800",
-          isOpen ? "bg-red-500! text-white!" : "",
-        )}
-      >
-        {isOpen ? <X /> : <MessageSquare />}
-      </motion.button>
+
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <motion.button
+            onClick={toggleOpen}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={cn(
+              "flex h-14 w-14 items-center justify-center rounded-full bg-neutral-800 text-neutral-100 shadow-lg dark:bg-neutral-100 dark:text-neutral-800",
+              isOpen ? "bg-red-500! text-white!" : "",
+            )}
+          >
+            {isOpen ? <X /> : <MessageSquare />}
+          </motion.button>
+        </TooltipTrigger>
+
+        <TooltipContent className="z-50">
+          <p> {isOpen ? "Close Chat" : "Open Chat"}</p>
+        </TooltipContent>
+      </Tooltip>
     </div>
   );
 }

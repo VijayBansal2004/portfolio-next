@@ -1,22 +1,30 @@
-import { LinksProps } from "@/types/types";
+import Link from "next/link";
 import { Block } from "./block";
+import { LinksProps } from "@/types/types";
 import { GitHub, LinkedIn, X } from "./icons";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
-import Link from "next/link";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const Footer = () => {
   const LINKS: LinksProps[] = [
     {
       link: "https://x.com/iamvijaybansal",
       Icon: <X />,
+      name: "X formally Twitter",
     },
     {
       link: "https://www.linkedin.com/in/vijay-bansal-319048249/",
       Icon: <LinkedIn />,
+      name: "LinkedIn",
     },
     {
       link: "https://github.com/VijayBansal2004",
       Icon: <GitHub />,
+      name: "GitHub",
     },
   ];
   return (
@@ -30,14 +38,21 @@ const Footer = () => {
         </p>
         <div className="flex items-center gap-2">
           {LINKS.map((link) => (
-            <Link
-              key={link.link}
-              href={link.link}
-              target="_blank"
-              className="h-4 w-4 text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200"
-            >
-              {link.Icon}
-            </Link>
+            <Tooltip key={link.link}>
+              <TooltipTrigger asChild>
+                <Link
+                  href={link.link}
+                  target="_blank"
+                  className="h-4 w-4 text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200"
+                >
+                  {link.Icon}
+                </Link>
+              </TooltipTrigger>
+
+              <TooltipContent className="z-50">
+                <p> {link.name}</p>
+              </TooltipContent>
+            </Tooltip>
           ))}
         </div>
       </div>

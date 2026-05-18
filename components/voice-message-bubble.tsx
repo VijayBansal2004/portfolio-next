@@ -1,9 +1,14 @@
 "use client";
 
 import * as React from "react";
-import { Button } from "@/components/ui/button";
-import { Play, Pause } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
+import { Play, Pause } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface VoiceMessageBubbleProps {
   text: string;
@@ -94,9 +99,17 @@ export default function VoiceMessageBubble({
       )}
     >
       {/* Play/Pause */}
-      <Button onClick={togglePlay} className="rounded-full p-2.5!">
-        {isPlaying ? <Pause /> : <Play />}
-      </Button>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button onClick={togglePlay} className="rounded-full p-2.5!">
+            {isPlaying ? <Pause /> : <Play />}
+          </Button>
+        </TooltipTrigger>
+
+        <TooltipContent className="z-50">
+          <p>{isPlaying ? "Pause" : "Play"}</p>
+        </TooltipContent>
+      </Tooltip>
 
       {/* Wave + Progress */}
       <div className="relative flex h-8 flex-1 items-center justify-between px-1">

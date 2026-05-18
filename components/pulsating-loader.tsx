@@ -8,7 +8,7 @@ export function RippleWaveLoader() {
       {[...Array(7)].map((_, index) => (
         <motion.div
           key={index}
-          className="h-8 w-2 rounded-full bg-neutral-800 dark:bg-neutral-200"
+          className="h-6 w-0.5 rounded-full bg-neutral-800 dark:bg-neutral-200"
           animate={{
             scaleY: [0.5, 1.5, 0.5],
             scaleX: [1, 0.8, 1],
