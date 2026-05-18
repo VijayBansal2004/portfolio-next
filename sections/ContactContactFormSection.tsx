@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { LoaderIcon } from "lucide-react";
+import { CircleAlert, LoaderIcon } from "lucide-react";
 import { toast } from "sonner";
 import { Block } from "@/components/block";
 import { cn } from "@/lib/utils";
@@ -7,6 +7,12 @@ import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { NativeMagnetic } from "@/components/ui/native-magnetic-shadcnui";
 import React from "react";
+
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 type ContactFormValues = {
   name: string;
@@ -53,7 +59,7 @@ const ContactContactFormSection = () => {
         className="mx-auto flex max-w-lg flex-col gap-6"
       >
         {/* Name */}
-        <InputContainer>
+        <InputContainer className="relative">
           <Label htmlFor="name">Name</Label>
           <Input
             id="name"
@@ -67,12 +73,35 @@ const ContactContactFormSection = () => {
                   "Name must contain only letters and be at least 3 characters!",
               },
             })}
+            className={
+              errors.name
+                ? "outline-2 outline-red-500 focus:ring-red-500 dark:focus:ring-red-500"
+                : ""
+            }
           />
-          {errors.name && <ErrorText>{errors.name.message}</ErrorText>}
+          {/* {errors.name && <ErrorText>{errors.name.message}</ErrorText>} */}
+
+          <div className="absolute right-2 bottom-3">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <CircleAlert
+                  className={cn(
+                    "size-4 text-neutral-600",
+                    errors.name && "cursor-help text-red-500",
+                  )}
+                />
+              </TooltipTrigger>
+              {errors.name && (
+                <TooltipContent className="z-50">
+                  {errors.name && <ErrorText>{errors.name.message}</ErrorText>}
+                </TooltipContent>
+              )}
+            </Tooltip>
+          </div>
         </InputContainer>
 
         {/* Email */}
-        <InputContainer>
+        <InputContainer className="relative">
           <Label htmlFor="email">Email</Label>
           <Input
             id="email"
@@ -85,12 +114,37 @@ const ContactContactFormSection = () => {
                 message: "Please enter a valid email address!",
               },
             })}
+            className={
+              errors.email
+                ? "outline-2 outline-red-500 focus:ring-red-500 dark:focus:ring-red-500"
+                : ""
+            }
           />
-          {errors.email && <ErrorText>{errors.email.message}</ErrorText>}
+          {/* {errors.email && <ErrorText>{errors.email.message}</ErrorText>} */}
+
+          <div className="absolute right-2 bottom-3">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <CircleAlert
+                  className={cn(
+                    "size-4 text-neutral-600",
+                    errors.email && "cursor-help text-red-500",
+                  )}
+                />
+              </TooltipTrigger>
+              {errors.email && (
+                <TooltipContent className="z-50">
+                  {errors.email && (
+                    <ErrorText>{errors.email.message}</ErrorText>
+                  )}
+                </TooltipContent>
+              )}
+            </Tooltip>
+          </div>
         </InputContainer>
 
         {/* Message */}
-        <InputContainer>
+        <InputContainer className="relative">
           <Label htmlFor="message">Message</Label>
           <Textarea
             id="message"
@@ -102,8 +156,32 @@ const ContactContactFormSection = () => {
                 message: "Message must be at least 10 characters!",
               },
             })}
+            className={
+              errors.message
+                ? "outline-2 outline-red-500 focus:ring-red-500 dark:focus:ring-red-500"
+                : ""
+            }
           />
-          {errors.message && <ErrorText>{errors.message.message}</ErrorText>}
+
+          <div className="absolute right-2 bottom-2">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <CircleAlert
+                  className={cn(
+                    "size-4 text-neutral-600",
+                    errors.message && "cursor-help text-red-500",
+                  )}
+                />
+              </TooltipTrigger>
+              {errors.message && (
+                <TooltipContent className="z-50">
+                  {errors.message && (
+                    <ErrorText>{errors.message.message}</ErrorText>
+                  )}
+                </TooltipContent>
+              )}
+            </Tooltip>
+          </div>
         </InputContainer>
 
         {/* Submit Button */}
@@ -157,31 +235,43 @@ export const Label = ({
 };
 
 export const Input = ({
+  className,
   ...rest
-}: React.InputHTMLAttributes<HTMLInputElement>) => {
+}: React.InputHTMLAttributes<HTMLInputElement> & {
+  className?: string;
+}) => {
   return (
     <input
       {...rest}
-      className="text-vj-primary dark:text-vj-primary-dark rounded-md border border-neutral-200 px-3 py-2 text-sm shadow-sm focus:ring-2 focus:ring-neutral-400 focus:outline-none dark:border-neutral-600 dark:focus:ring-neutral-600"
+      className={cn(
+        "text-vj-primary dark:text-vj-primary-dark rounded-md border border-neutral-200 px-3 py-2 text-sm shadow-sm focus:ring-2 focus:ring-neutral-400 focus:outline-none dark:border-neutral-600 dark:focus:ring-neutral-600",
+        className,
+      )}
     />
   );
 };
 
 export const Textarea = ({
+  className,
   ...rest
-}: React.TextareaHTMLAttributes<HTMLTextAreaElement>) => {
+}: React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
+  className?: string;
+}) => {
   return (
     <textarea
       {...rest}
       rows={4}
-      className="text-vj-primary dark:text-vj-primary-dark resize-none rounded-md border border-neutral-200 px-3 py-2 text-sm shadow-sm focus:ring-2 focus:ring-neutral-400 focus:outline-none dark:border-neutral-600 dark:focus:ring-neutral-600"
+      className={cn(
+        "text-vj-primary dark:text-vj-primary-dark resize-none rounded-md border border-neutral-200 px-3 py-2 text-sm shadow-sm focus:ring-2 focus:ring-neutral-400 focus:outline-none dark:border-neutral-600 dark:focus:ring-neutral-600",
+        className,
+      )}
     />
   );
 };
 
 export const ErrorText = ({ children }: { children?: React.ReactNode }) => {
   if (!children) return null;
-  return <p className="text-sm text-red-500">{children}</p>;
+  return <p className="text-xs">{children}</p>;
 };
 
 export function SubmitBtn({
